@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira</title>
+</head>
+<body>
+    <h2>Informe a quantidade de Rosas transportadas por kg</h2>
+    <input id="input_rosas"/>
+    <h2>Informe o valor ganho por quantidade de Rosas transportadas</h2>
+    <input id="input_ganho"/>
+
+    <br><br>
+    <button onclick="calcularOrcamento()">Calcular Orçamento</button>
+    <div id="div_orcamento"></div>
+</body>
+</html>
+<script>
+    function calcularOrcamento() {
+        var rosas = Number(input_rosas.value);
+        var ganho = Number(input_ganho.value);
+        var lucro = rosas * ganho;
+        var perda = lucro * 0.4;
+        var semSistema = lucro - perda;
+        var economia = perda * 0.5;
+        var comSistema =  semSistema + economia;
+
+        div_orcamento.innerHTML = `<br><br>Ao fazer o transporte das Rosas sem o monitoramento ideal do controle de temperatura e umidade, você lucra <b><i>R$${lucro}</i></b>, perdendo <i>40%</i> da sua carga e lucro, podendo se tornar <b><i>R$${semSistema}</i></b>, como novo lucro final. <br>Devido a esse mal monitoramento, há uma perda muito grande no lucro e no conteúdo sendo transportado, por isso, no transporte das Rosas com o uso do nosso sistema de monitoramento de controle e umidade, você pode reduzir em <i>50%</i> sua perda, gerando <b><i>R$${economia}</i></b> a mais de lucro, obtendo <b><i>R$${comSistema}</i></b>, valor significativamente alto comparado ao lucro sem sistema.`;       
+    }
+</script>
